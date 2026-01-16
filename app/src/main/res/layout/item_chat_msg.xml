@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="8dp">
+
+    <!-- AI Message (Left) -->
+    <LinearLayout
+        android:id="@+id/layoutAi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:orientation="vertical"
+        android:visibility="gone"
+        android:maxWidth="280dp">
+
+        <TextView
+            android:id="@+id/tvAiName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="AI 课代表"
+            android:textSize="12sp"
+            android:textColor="#757575"
+            android:layout_marginBottom="4dp"
+            android:layout_marginStart="4dp"/>
+
+        <TextView
+            android:id="@+id/tvAiContent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_chat_ai"
+            android:text="Hello"
+            android:textSize="16sp"
+            android:textColor="#000000"
+            android:lineSpacingExtra="4dp"/>
+    </LinearLayout>
+
+    <!-- User Message (Right) -->
+    <LinearLayout
+        android:id="@+id/layoutUser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:orientation="vertical"
+        android:visibility="gone"
+        android:maxWidth="280dp">
+
+        <TextView
+            android:id="@+id/tvUserContent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_chat_user"
+            android:text="Hi there"
+            android:textSize="16sp"
+            android:textColor="#FFFFFF"
+            android:lineSpacingExtra="4dp"/>
+    </LinearLayout>
+
+</FrameLayout>

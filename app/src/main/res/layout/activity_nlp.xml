@@ -1,103 +1,179 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:background="#F5F5F5">
 
-    <!-- 顶部栏：标题 + 设置按钮 -->
-    <LinearLayout
+    <!-- Top Bar -->
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center_vertical"
-        android:layout_marginBottom="8dp">
+        android:layout_height="56dp"
+        app:cardElevation="4dp"
+        app:cardBackgroundColor="@android:color/white">
+        
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingHorizontal="16dp">
+            
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/title_nlp"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_centerVertical="true"
+                android:textColor="#333333"/>
+                
+            <ImageButton
+                android:id="@+id/btnSettings"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:src="@android:drawable/ic_menu_preferences"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:contentDescription="Settings"/>
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
 
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/title_nlp"
-            android:textSize="20sp"
-            android:textStyle="bold"/>
-
-        <Button
-            android:id="@+id/btnSettings"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            style="@style/Widget.MaterialComponents.Button.TextButton"
-            android:text="⚙ 设置API" />
-    </LinearLayout>
-
-    <!-- 配置面板 (默认隐藏) -->
+    <!-- Settings Panel (Collapsible) -->
     <androidx.cardview.widget.CardView
         android:id="@+id/cardSettings"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
+        android:layout_margin="12dp"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="2dp"
         android:visibility="gone">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="10dp"
-            android:background="#F0F0F0">
+            android:padding="16dp"
+            android:background="#FFFFFF">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/nlp_setting_title"
                 android:textStyle="bold"
-                android:layout_marginBottom="5dp"/>
+                android:textColor="#333333"
+                android:layout_marginBottom="8dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="选择 AI 模型提供商:"
+                android:textSize="12sp"
+                android:textColor="#666666" />
 
             <RadioGroup
                 android:id="@+id/radioGroupProvider"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:layout_marginTop="8dp">
 
                 <RadioButton
                     android:id="@+id/rbDeepSeek"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="DeepSeek"
+                    android:layout_weight="1"
                     android:checked="true"/>
                 
                 <RadioButton
                     android:id="@+id/rbKimi"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Kimi"/>
+                    android:text="Kimi"
+                    android:layout_weight="1"/>
 
                 <RadioButton
                     android:id="@+id/rbOpenAI"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="OpenAI"/>
+                    android:text="OpenAI"
+                    android:layout_weight="1"/>
             </RadioGroup>
 
-            <EditText
-                android:id="@+id/etApiKey"
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/nlp_api_key_hint"
-                android:inputType="textPassword"
-                android:layout_marginTop="5dp"/>
+                android:layout_marginTop="12dp"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etApiKey"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/nlp_api_key_hint"
+                    android:inputType="textPassword"
+                    android:textSize="14sp"/>
+            </com.google.android.material.textfield.TextInputLayout>
 
             <Button
                 android:id="@+id/btnSaveConfig"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
                 android:text="@string/nlp_save_config"
-                android:layout_marginTop="5dp"/>
+                android:layout_marginTop="16dp"/>
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
-    <!-- 聊天记录区域 -->
-    <ScrollView
-        android:id="@+id/scrollViewChat"
+    <!-- Chat Area -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewChat"
         android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="8dp"
+        android:clipToPadding="false"
+        android:scrollbars="vertical"/>
+
+    <!-- Input Area -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="8dp"
+        android:background="#FFFFFF"
+        android:elevation="8dp"
+        android:gravity="bottom">
+
+        <EditText
+            android:id="@+id/etInput"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/bg_input_field"
+            android:minHeight="48dp"
+            android:maxHeight="120dp"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="12dp"
+            android:hint="有问题尽管问我..."
+            android:inputType="textMultiLine|textCapSentences"
+            android:textSize="16sp"
+            android:layout_marginEnd="8dp" />
+
+        <Button
+            android:id="@+id/btnSend"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="@drawable/bg_chat_user"
+            android:text="➣"
+             android:textSize="20sp"
+            android:textColor="#FFFFFF"
+            android:gravity="center"
+            android:padding="0dp"/>
+            
+    </LinearLayout>
+
+</LinearLayout>
         android:layout_height="0dp"
         android:layout_weight="1"
         android:background="#F5F5F5"

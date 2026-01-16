@@ -5,12 +5,13 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageButton
 import android.widget.RadioGroup
-import android.widget.ScrollView
-import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.aiclassmate.network.ChatRequest
 import com.example.aiclassmate.network.ChatResponse
 import com.example.aiclassmate.network.ConversationApiService
@@ -23,17 +24,19 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class NlpActivity : AppCompatActivity() {
 
-    private lateinit var tvChatHistory: TextView
+    private lateinit var recyclerViewChat: RecyclerView
     private lateinit var etInput: EditText
-    private lateinit var scrollViewChat: ScrollView
     private lateinit var etApiKey: EditText
     private lateinit var cardSettings: CardView
     private lateinit var radioGroupProvider: RadioGroup
     
     // UI controls
     private lateinit var btnSend: Button
-    private lateinit var btnSettings: Button
+    private lateinit var btnSettings: View
     private lateinit var btnSaveConfig: Button
+
+    private lateinit var chatAdapter: ChatAdapter
+    private val chatMessages = mutableListOf<ChatMessage>()
 
     // Config data
     private var currentApiKey: String = ""
@@ -45,15 +48,21 @@ class NlpActivity : AppCompatActivity() {
         setContentView(R.layout.activity_nlp)
 
         // Init Views
-        tvChatHistory = findViewById(R.id.tvChatHistory)
+        recyclerViewChat = findViewById(R.id.recyclerViewChat)
         etInput = findViewById(R.id.etInput)
-        scrollViewChat = findViewById(R.id.scrollViewChat)
         etApiKey = findViewById(R.id.etApiKey)
         cardSettings = findViewById(R.id.cardSettings)
         radioGroupProvider = findViewById(R.id.radioGroupProvider)
         btnSend = findViewById(R.id.btnSend)
         btnSettings = findViewById(R.id.btnSettings)
         btnSaveConfig = findViewById(R.id.btnSaveConfig)
+
+        // Init RecyclerView
+        chatAdapter = ChatAdapter(chatMessages)
+        recyclerViewChat.layoutManager = LinearLayoutManager(this).apply {
+            stackFromEnd = true
+        }
+        recyclerViewChat.adapter = chatAdapter
 
         // Load saved config
         loadConfig()
@@ -83,7 +92,7 @@ class NlpActivity : AppCompatActivity() {
                 }
                 
                 // Show user message
-                appendChat("我: $question")
+                addMessageToChat(question, true)
                 etInput.text.clear()
                 
                 // Call API
@@ -142,7 +151,7 @@ class NlpActivity : AppCompatActivity() {
     }
 
     private fun performApiCall(question: String) {
-        appendChat("AI 正在思考...")
+        addMessageToChat("AI 正在思考...", false)
 
         // Build Retrofit Client
         val retrofit = Retrofit.Builder()
@@ -163,38 +172,29 @@ class NlpActivity : AppCompatActivity() {
         // Execute Call
         service.sendMessage("Bearer $currentApiKey", request).enqueue(object : Callback<ChatResponse> {
             override fun onResponse(call: Call<ChatResponse>, response: Response<ChatResponse>) {
-                removeLastLine() // Remove "Thinking..."
+                chatAdapter.removeLastMessage() // Remove "Thinking..."
                 
                 if (response.isSuccessful && response.body() != null) {
                     val reply = response.body()!!.choices.firstOrNull()?.message?.content ?: "空响应"
-                    appendChat("AI: $reply")
+                    addMessageToChat(reply, false)
                 } else {
                     val errorMsg = response.errorBody()?.string() ?: "未知错误"
-                    appendChat("错误: $errorMsg")
+                    addMessageToChat("错误: $errorMsg", false)
                 }
             }
 
             override fun onFailure(call: Call<ChatResponse>, t: Throwable) {
-                removeLastLine()
-                appendChat("网络请求失败: ${t.message}")
+                chatAdapter.removeLastMessage()
+                addMessageToChat("网络请求失败: ${t.message}", false)
             }
         })
     }
 
-    private fun appendChat(text: String) {
-        val currentText = tvChatHistory.text.toString()
-        tvChatHistory.text = "$currentText\n\n$text"
-        // Scroll to bottom
-        scrollViewChat.post {
-            scrollViewChat.fullScroll(View.FOCUS_DOWN)
-        }
-    }
-
-    // Helper to remove "Thinking..." text
-    private fun removeLastLine() {
-        val fullText = tvChatHistory.text.toString()
-        if (fullText.lastIndexOf("\n\nAI 正在思考...") != -1) {
-            tvChatHistory.text = fullText.substring(0, fullText.lastIndexOf("\n\nAI 正在思考..."))
+    private fun addMessageToChat(text: String, isUser: Boolean) {
+        val msg = ChatMessage(text, isUser)
+        chatAdapter.addMessage(msg)
+        if (chatMessages.isNotEmpty()) {
+            recyclerViewChat.smoothScrollToPosition(chatMessages.size - 1)
         }
     }
 }
