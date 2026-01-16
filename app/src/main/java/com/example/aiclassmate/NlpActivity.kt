@@ -22,7 +22,8 @@ class NlpActivity : AppCompatActivity() {
         btnSend.setOnClickListener {
             val keyword = etInput.text.toString()
             if (keyword.isNotEmpty()) {
-                appendChat("Me: $keyword")
+                // 显示我发送的内容
+                appendChat(getString(R.string.nlp_user_prefix, keyword))
                 etInput.text.clear()
                 getAiResponse(keyword)
             }
@@ -31,18 +32,13 @@ class NlpActivity : AppCompatActivity() {
 
     private fun appendChat(text: String) {
         val currentText = tvChatHistory.text.toString()
-        tvChatHistory.text = "$currentText\n$text"
+        tvChatHistory.text = "$currentText\n\n$text"
     }
 
     private fun getAiResponse(keyword: String) {
-        // Normally you would make a Retrofit call here to an LLM API (like GPT, Claude, or local model)
-        // Mocking the response for now.
-        
-        val mockResponse = "AI: 针对关键词 '$keyword'，相关的知识点解析如下：\n" +
-                "1. 定义：XXXX\n" +
-                "2. 核心公式：E=mc^2\n" +
-                "3. 常见考点：..." 
-        
+        // 模拟 AI 回复
+        // 在真实项目中，这里会调用 Retrofit 接口请求后端
+        val mockResponse = getString(R.string.nlp_mock_response, keyword)
         appendChat(mockResponse)
     }
 }

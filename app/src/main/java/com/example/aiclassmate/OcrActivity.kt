@@ -13,6 +13,7 @@ import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.camera.view.PreviewView
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import com.example.aiclassmate.R
 import com.google.mlkit.vision.common.InputImage
 import com.google.mlkit.vision.text.TextRecognition
 import com.google.mlkit.vision.text.latin.TextRecognizerOptions
@@ -48,6 +49,19 @@ class OcrActivity : AppCompatActivity() {
 
         findViewById<Button>(R.id.apiCapture).setOnClickListener {
             takePhotoAndRecognize()
+        }
+    }
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int, permissions: Array<String>, grantResults: IntArray) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        if (requestCode == REQUEST_CODE_PERMISSIONS) {
+            if (allPermissionsGranted()) {
+                startCamera()
+            } else {
+                Toast.makeText(this, getString(R.string.permission_camera_needed), Toast.LENGTH_SHORT).show()
+                finish()
+            }
         }
     }
 
@@ -97,11 +111,12 @@ class OcrActivity : AppCompatActivity() {
 
             recognizer.process(image)
                 .addOnSuccessListener { visionText ->
-                    val text = visionText.text
-                    tvOcrResult.text = "识别结果:\n$text\n\n(此处可添加逻辑调用后端API获取相关知识点)"
+                    // 使用格式化字符串
+                    val finalResult = getString(R.string.ocr_result_template, visionText.text)
+                    tvOcrResult.text = finalResult
                 }
                 .addOnFailureListener { e ->
-                    tvOcrResult.text = "识别失败: ${e.message}"
+                    tvOcrResult.text = getString(R.string.ocr_error_template, e.message)
                 }
                 .addOnCompleteListener {
                     imageProxy.close()

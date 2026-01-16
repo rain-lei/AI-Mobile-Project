@@ -15,7 +15,7 @@
         android:id="@+id/apiCapture"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="拍照并识别"
+        android:text="@string/btn_camera_capture"
         android:layout_margin="16dp"/>
 
     <TextView
@@ -23,8 +23,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="16dp"
-        android:text="识别结果将显示在这里..."
-        android:maxLines="5"
+        android:text="@string/ocr_result_placeholder"
+        android:maxLines="8"
         android:scrollbars="vertical"/>
 
 </LinearLayout>

@@ -1,11 +1,39 @@
 <resources>
-    <string name="app_name">AI Classmate</string>
+    <string name="app_name">AI 课代表</string>
+    
+    <!-- 主页按钮 -->
     <string name="btn_schedule">课表管理</string>
     <string name="btn_ocr">板书识别 (OCR)</string>
     <string name="btn_nlp">NLP 答疑</string>
     <string name="btn_share">资料云共享</string>
+    
+    <!-- 页面标题 -->
     <string name="title_schedule">上传与查看课表</string>
     <string name="title_ocr">拍照识别板书</string>
     <string name="title_nlp">知识点解答</string>
     <string name="title_share">资料上传与共享</string>
+
+    <!-- 课表页面 -->
+    <string name="btn_upload_schedule_img">上传课表图片</string>
+    <string name="msg_schedule_success">课表图片已加载 (模拟上传成功)</string>
+
+    <!-- OCR 页面 -->
+    <string name="btn_camera_capture">拍照并识别</string>
+    <string name="ocr_result_placeholder">识别结果将显示在这里...</string>
+    <string name="ocr_result_template">识别结果:\n%1$s\n\n[系统提示]：已根据板书内容为您推荐相关复习资料。</string>
+    <string name="ocr_error_template">识别失败: %1$s</string>
+    <string name="permission_camera_needed">需要相机权限才能进行板书识别</string>
+
+    <!-- NLP 页面 -->
+    <string name="nlp_welcome">AI助手: 你好！我是你的学习助手。请输入知识点关键词，我来为你解答。</string>
+    <string name="nlp_input_hint">输入关键词 (例如: 傅里叶变换)...</string>
+    <string name="btn_send">发送</string>
+    <string name="nlp_user_prefix">我: %1$s</string>
+    <string name="nlp_mock_response">AI助手: 收到关键词「%1$s」。\n\n相关的知识点解析如下：\n1. 【核心定义】：这里是关于 %1$s 的详细定义解释...\n2. 【关键公式】：涉及到该知识点的核心算式...\n3. 【推荐习题】：建议练习相关章节第 3-5 题。</string>
+
+    <!-- 资料共享页面 -->
+    <string name="btn_select_file">选择文件上传</string>
+    <string name="share_list_title">云端文件列表 (在线):</string>
+    <string name="share_list_mock_content">- 高等数学_期末复习笔记.pdf\n- 大学英语_Unit1_课件.ppt\n- 操作系统_实验报告模板.docx\n\n(以上为模拟云端数据)</string>
+    <string name="msg_file_uploading">文件已选中: %1$s\n正在上传至云端 (模拟)...</string>
 </resources>

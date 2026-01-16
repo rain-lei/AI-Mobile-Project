@@ -39,8 +39,8 @@ class ScheduleActivity : AppCompatActivity() {
         if (requestCode == PICK_IMAGE_REQUEST && resultCode == Activity.RESULT_OK && data != null && data.data != null) {
             val imageUri: Uri = data.data!!
             ivSchedule.setImageURI(imageUri)
-            Toast.makeText(this, "课表上传成功 (模拟)", Toast.LENGTH_SHORT).show()
-            // In a real app, you would upload 'imageUri' to your server here
+            // 使用 strings.xml 资源
+            Toast.makeText(this, getString(R.string.msg_schedule_success), Toast.LENGTH_SHORT).show()
         }
     }
 }

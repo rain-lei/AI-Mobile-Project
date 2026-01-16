@@ -28,8 +28,10 @@ class FileShareActivity : AppCompatActivity() {
 
         if (requestCode == PICK_FILE_REQUEST && resultCode == Activity.RESULT_OK && data != null) {
             val fileUri: Uri? = data.data
-            // In a real app, upload fileUri to cloud storage
-            Toast.makeText(this, "文件已选择，正在上传 (模拟): $fileUri", Toast.LENGTH_LONG).show()
+            fileUri?.let {
+                val msg = getString(R.string.msg_file_uploading, it.lastPathSegment ?: "unknown")
+                Toast.makeText(this, msg, Toast.LENGTH_LONG).show()
+            }
         }
     }
 }

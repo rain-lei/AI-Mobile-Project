@@ -16,20 +16,20 @@
         android:id="@+id/btnSelectFile"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="选择文件上传" />
+        android:text="@string/btn_select_file" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="云端文件列表 (模拟):"
+        android:text="@string/share_list_title"
         android:textStyle="bold"/>
 
     <TextView
         android:id="@+id/tvFileList"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="- 线性代数笔记.pdf\n- 英语课件.ppt\n(上传功能暂为模拟)"
+        android:text="@string/share_list_mock_content"
         android:layout_marginTop="8dp"/>
 
 </LinearLayout>
