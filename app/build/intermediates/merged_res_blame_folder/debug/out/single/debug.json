@@ -1,46 +1,50 @@
 [
     {
-        "merged": "C:\\Users\\rain_\\.gradle\\daemon\\8.2\\com.example.aiclassmate.app-merged_res-38:\\layout_activity_schedule.xml.flat",
-        "source": "C:\\Users\\rain_\\.gradle\\daemon\\8.2\\com.example.aiclassmate.app-main-40:\\layout\\activity_schedule.xml"
+        "merged": "C:\\Users\\rain_\\.gradle\\daemon\\8.7\\com.example.aiclassmate.app-merged_res-38:\\xml_data_extraction_rules.xml.flat",
+        "source": "C:\\Users\\rain_\\.gradle\\daemon\\8.7\\com.example.aiclassmate.app-main-40:\\xml\\data_extraction_rules.xml"
     },
     {
-        "merged": "C:\\Users\\rain_\\.gradle\\daemon\\8.2\\com.example.aiclassmate.app-merged_res-38:\\layout_activity_fileshare.xml.flat",
-        "source": "C:\\Users\\rain_\\.gradle\\daemon\\8.2\\com.example.aiclassmate.app-main-40:\\layout\\activity_fileshare.xml"
+        "merged": "C:\\Users\\rain_\\.gradle\\daemon\\8.7\\com.example.aiclassmate.app-merged_res-38:\\drawable_ic_launcher_foreground.xml.flat",
+        "source": "C:\\Users\\rain_\\.gradle\\daemon\\8.7\\com.example.aiclassmate.app-main-40:\\drawable\\ic_launcher_foreground.xml"
     },
     {
-        "merged": "com.example.aiclassmate.app-merged_res-38:/mipmap-anydpi-v26_ic_launcher.xml.flat",
-        "source": "com.example.aiclassmate.app-main-40:/mipmap-anydpi-v26/ic_launcher.xml"
+        "merged": "C:\\Users\\rain_\\.gradle\\daemon\\8.7\\com.example.aiclassmate.app-merged_res-38:\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "C:\\Users\\rain_\\.gradle\\daemon\\8.7\\com.example.aiclassmate.app-main-40:\\mipmap-anydpi-v26\\ic_launcher_round.xml"
     },
     {
-        "merged": "com.example.aiclassmate.app-merged_res-38:/drawable_ic_launcher_foreground.xml.flat",
-        "source": "com.example.aiclassmate.app-main-40:/drawable/ic_launcher_foreground.xml"
+        "merged": "C:\\Users\\rain_\\.gradle\\daemon\\8.7\\com.example.aiclassmate.app-merged_res-38:\\xml_backup_rules.xml.flat",
+        "source": "C:\\Users\\rain_\\.gradle\\daemon\\8.7\\com.example.aiclassmate.app-main-40:\\xml\\backup_rules.xml"
     },
     {
-        "merged": "com.example.aiclassmate.app-merged_res-38:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
-        "source": "com.example.aiclassmate.app-main-40:/mipmap-anydpi-v26/ic_launcher_round.xml"
+        "merged": "C:\\Users\\rain_\\.gradle\\daemon\\8.7\\com.example.aiclassmate.app-merged_res-38:\\layout_activity_main.xml.flat",
+        "source": "C:\\Users\\rain_\\.gradle\\daemon\\8.7\\com.example.aiclassmate.app-main-40:\\layout\\activity_main.xml"
     },
     {
-        "merged": "C:\\Users\\rain_\\.gradle\\daemon\\8.2\\com.example.aiclassmate.app-merged_res-38:\\layout_activity_ocr.xml.flat",
-        "source": "C:\\Users\\rain_\\.gradle\\daemon\\8.2\\com.example.aiclassmate.app-main-40:\\layout\\activity_ocr.xml"
+        "merged": "C:\\Users\\rain_\\.gradle\\daemon\\8.7\\com.example.aiclassmate.app-merged_res-38:\\mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "C:\\Users\\rain_\\.gradle\\daemon\\8.7\\com.example.aiclassmate.app-main-40:\\mipmap-anydpi-v26\\ic_launcher.xml"
     },
     {
-        "merged": "C:\\Users\\rain_\\.gradle\\daemon\\8.2\\com.example.aiclassmate.app-merged_res-38:\\layout_activity_main.xml.flat",
-        "source": "C:\\Users\\rain_\\.gradle\\daemon\\8.2\\com.example.aiclassmate.app-main-40:\\layout\\activity_main.xml"
+        "merged": "C:\\Users\\rain_\\.gradle\\daemon\\8.7\\com.example.aiclassmate.app-merged_res-38:\\layout_activity_fileshare.xml.flat",
+        "source": "C:\\Users\\rain_\\.gradle\\daemon\\8.7\\com.example.aiclassmate.app-main-40:\\layout\\activity_fileshare.xml"
     },
     {
-        "merged": "C:\\Users\\rain_\\.gradle\\daemon\\8.2\\com.example.aiclassmate.app-merged_res-38:\\xml_data_extraction_rules.xml.flat",
-        "source": "C:\\Users\\rain_\\.gradle\\daemon\\8.2\\com.example.aiclassmate.app-main-40:\\xml\\data_extraction_rules.xml"
+        "merged": "C:\\Users\\rain_\\.gradle\\daemon\\8.7\\com.example.aiclassmate.app-merged_res-38:\\drawable_ic_launcher_background.xml.flat",
+        "source": "C:\\Users\\rain_\\.gradle\\daemon\\8.7\\com.example.aiclassmate.app-main-40:\\drawable\\ic_launcher_background.xml"
     },
     {
-        "merged": "C:\\Users\\rain_\\.gradle\\daemon\\8.2\\com.example.aiclassmate.app-merged_res-38:\\xml_backup_rules.xml.flat",
-        "source": "C:\\Users\\rain_\\.gradle\\daemon\\8.2\\com.example.aiclassmate.app-main-40:\\xml\\backup_rules.xml"
+        "merged": "C:\\Users\\rain_\\.gradle\\daemon\\8.7\\com.example.aiclassmate.app-merged_res-38:\\layout_activity_nlp.xml.flat",
+        "source": "C:\\Users\\rain_\\.gradle\\daemon\\8.7\\com.example.aiclassmate.app-main-40:\\layout\\activity_nlp.xml"
     },
     {
-        "merged": "C:\\Users\\rain_\\.gradle\\daemon\\8.2\\com.example.aiclassmate.app-merged_res-38:\\layout_activity_nlp.xml.flat",
-        "source": "C:\\Users\\rain_\\.gradle\\daemon\\8.2\\com.example.aiclassmate.app-main-40:\\layout\\activity_nlp.xml"
+        "merged": "C:\\Users\\rain_\\.gradle\\daemon\\8.7\\com.example.aiclassmate.app-merged_res-38:\\layout_activity_schedule.xml.flat",
+        "source": "C:\\Users\\rain_\\.gradle\\daemon\\8.7\\com.example.aiclassmate.app-main-40:\\layout\\activity_schedule.xml"
     },
     {
-        "merged": "com.example.aiclassmate.app-merged_res-38:/drawable_ic_launcher_background.xml.flat",
-        "source": "com.example.aiclassmate.app-main-40:/drawable/ic_launcher_background.xml"
+        "merged": "com.example.aiclassmate.app-merged_res-38:/layout_activity_nlp.xml.flat",
+        "source": "com.example.aiclassmate.app-main-40:/layout/activity_nlp.xml"
+    },
+    {
+        "merged": "C:\\Users\\rain_\\.gradle\\daemon\\8.7\\com.example.aiclassmate.app-merged_res-38:\\layout_activity_ocr.xml.flat",
+        "source": "C:\\Users\\rain_\\.gradle\\daemon\\8.7\\com.example.aiclassmate.app-main-40:\\layout\\activity_ocr.xml"
     }
 ]

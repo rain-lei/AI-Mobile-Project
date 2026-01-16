@@ -26,10 +26,18 @@
 
     <!-- NLP 页面 -->
     <string name="nlp_welcome">AI助手: 你好！我是你的学习助手。请输入知识点关键词，我来为你解答。</string>
-    <string name="nlp_input_hint">输入关键词 (例如: 傅里叶变换)...</string>
+    <string name="nlp_input_hint">请描述你的问题...</string>
     <string name="btn_send">发送</string>
     <string name="nlp_user_prefix">我: %1$s</string>
-    <string name="nlp_mock_response">AI助手: 收到关键词「%1$s」。\n\n相关的知识点解析如下：\n1. 【核心定义】：这里是关于 %1$s 的详细定义解释...\n2. 【关键公式】：涉及到该知识点的核心算式...\n3. 【推荐习题】：建议练习相关章节第 3-5 题。</string>
+    <string name="nlp_setting_title">模型设置</string>
+    <string name="nlp_api_key_hint">在此输入您的 API Key (sk-...)</string>
+    <string name="nlp_provider_deepseek">DeepSeek (性价比首选)</string>
+    <string name="nlp_provider_kimi">Kimi (Moonshot)</string>
+    <string name="nlp_provider_openai">OpenAI (GPT-3.5)</string>
+    <string name="nlp_save_config">保存配置</string>
+    <string name="nlp_config_saved">配置已保存！</string>
+    <string name="nlp_error_no_key">请先点击右上角设置 API Key</string>
+    <string name="nlp_error_network">网络请求失败: %1$s</string>
 
     <!-- 资料共享页面 -->
     <string name="btn_select_file">选择文件上传</string>
