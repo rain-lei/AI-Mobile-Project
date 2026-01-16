@@ -113,8 +113,14 @@ class NlpActivity : AppCompatActivity() {
         
         when (radioGroupProvider.checkedRadioButtonId) {
             R.id.rbDeepSeek -> {
-                currentBaseUrl = "https://api.deepseek.com/"
-                currentModel = "deepseek-chat"
+                // Check if it's an OpenRouter key
+                if (currentApiKey.startsWith("sk-or-")) {
+                    currentBaseUrl = "https://openrouter.ai/api/v1/"
+                    currentModel = "deepseek/deepseek-chat"
+                } else {
+                    currentBaseUrl = "https://api.deepseek.com/"
+                    currentModel = "deepseek-chat"
+                }
             }
             R.id.rbKimi -> {
                 currentBaseUrl = "https://api.moonshot.cn/v1/"
