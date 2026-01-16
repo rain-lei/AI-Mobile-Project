@@ -26,7 +26,18 @@
                 android:textStyle="bold"
                 android:layout_centerVertical="true"
                 android:textColor="#333333"/>
-                
+            
+            <!-- Connection Status Indicator (Optional) -->
+             <View
+                android:id="@+id/viewStatus"
+                android:layout_width="8dp"
+                android:layout_height="8dp"
+                android:background="@drawable/bg_status_connected"
+                android:layout_toStartOf="@id/btnSettings"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="16dp"
+                android:visibility="gone"/>
+
             <ImageButton
                 android:id="@+id/btnSettings"
                 android:layout_width="40dp"
@@ -171,44 +182,6 @@
             android:gravity="center"
             android:padding="0dp"/>
             
-    </LinearLayout>
-
-</LinearLayout>
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:background="#F5F5F5"
-        android:padding="8dp">
-        <TextView
-            android:id="@+id/tvChatHistory"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/nlp_welcome"
-            android:textColor="#333333"
-            android:lineSpacingExtra="4dp"
-            android:textIsSelectable="true"/>
-    </ScrollView>
-
-    <!-- 底部输入框 -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="8dp">
-
-        <EditText
-            android:id="@+id/etInput"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:hint="@string/nlp_input_hint"
-            android:minHeight="48dp"/>
-
-        <Button
-            android:id="@+id/btnSend"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/btn_send" 
-            android:layout_marginLeft="8dp"/>
     </LinearLayout>
 
 </LinearLayout>
