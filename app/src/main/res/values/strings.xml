@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">AI Classmate</string>
+    <string name="btn_schedule">课表管理</string>
+    <string name="btn_ocr">板书识别 (OCR)</string>
+    <string name="btn_nlp">NLP 答疑</string>
+    <string name="btn_share">资料云共享</string>
+    <string name="title_schedule">上传与查看课表</string>
+    <string name="title_ocr">拍照识别板书</string>
+    <string name="title_nlp">知识点解答</string>
+    <string name="title_share">资料上传与共享</string>
+</resources>

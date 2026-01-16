@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!-- Camera Preview Placeholder -->
+    <androidx.camera.view.PreviewView
+        android:id="@+id/viewFinder"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <Button
+        android:id="@+id/apiCapture"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="拍照并识别"
+        android:layout_margin="16dp"/>
+
+    <TextView
+        android:id="@+id/tvOcrResult"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:text="识别结果将显示在这里..."
+        android:maxLines="5"
+        android:scrollbars="vertical"/>
+
+</LinearLayout>
